@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<map width="4096" height="4096" imageFilename="maps/PDA.dds"  mapFieldColor="0.1500 0.1195 0.0953" mapGrassFieldColor="0.1470 0.1441 0.0823">
+    <filename>maps/map.i3d</filename>
+    <vertexBufferMemoryUsage>0</vertexBufferMemoryUsage>
+    <indexBufferMemoryUsage>0</indexBufferMemoryUsage>
+    <textureMemoryUsage>0</textureMemoryUsage>
+
+    <culling xzOffset="100" />
+    <densityMap revision="1" />
+    <terrainLodTexture revision="1" />
+    <splitShapes revision="1" />
+    <tipCollision revision="1" />
+    <placementCollision revision="1" />
+    <navigationCollision revision="1" />
+    <shop filename="$data/store/ui/shop.xml" />
+    <storeItems filename="xml/storeItems.xml" />
+    <collectibles filename="xml/collectibles.xml" />
+    <sounds filename="xml/sound.xml" />
+    <environment filename="xml/environmentLSF.xml" />
+    <growth filename="xml/maps_growth.xml" />
+    <weed filename="$data/maps/mapAlpine/weed.xml" />
+    <fieldGround filename="xml/fieldGround.xml" />
+    <farmlands filename="xml/farmlands.xml" />
+
+    <animals filename="$dataS/character/animals.xml">
+        <names filename="$dataS/character/animalNames.xml" />
+        <food filename="$dataS/character/animalFood.xml" />
+    </animals>
+    <wildlife filename="$dataS/character/wildlifeSpawner.xml" />
+    <npcs filename="$data/maps/mapAlpine/npcs.xml" />
+    <!-- <helpers filename="$data/maps/maps_helpers.xml" /> -->
+
+    <missionVehicles filename="$dataS/missionVehicles.xml" />
+
+    <licensePlates filename="xml/licensePlatesDE.xml"/>
+
+    <helpline filename="$dataS/helpLine.xml">
+        <trigger position="135.5 10.4 -312.5" categoryIndex="7" pageIndex="1" /> <!-- forestry -->
+        <trigger position="299.0 10.4 20.0"   categoryIndex="8" pageIndex="1" /> <!-- character creation -->
+        <trigger position="5.0 18.8 -595.0"   categoryIndex="4" pageIndex="1" /> <!-- grassland -->
+        <trigger position="-594.5 9.9 -756"   categoryIndex="6" pageIndex="1" /> <!-- animals -->
+        <trigger position="8.0 18.6 -547.0"   categoryIndex="1" pageIndex="1" /> <!-- making money -->
+        <trigger position="1.0 10.3 -69.0"    categoryIndex="1" pageIndex="2" /> <!-- shop -->
+    </helpline>
+
+    <gameplayHints filename="$dataS/gameplayHints.xml" />
+	<!-- <competitiveMultiplayer filename="$data/maps/mapAlpine/competitiveMultiplayer.xml" /> -->
+	<depthOfField farCoC="0.175" /> <!-- default: 0.4 -> reduce to see the mountains better -->
+    <fillTypes filename="xml/maps_fillTypes.xml" />    
+    <fruitTypes filename="xml/maps_fruitTypes.xml" />
+    <!-- <sprayTypes filename="$data/maps/mapAlpine/maps_sprayTypes.xml" /> -->
+    <!-- <treeTypes filename="$data/maps/mapAlpine/maps_treeTypes.xml" /> -->
+
+    <hotspots>
+        <placeableHotspot type="SHOP_ANIMAL" text="$l10n_animals_dealer" worldPosition="254.521 -1884.38" teleportWorldPosition="254 5.54 -1884" />
+		<placeableHotspot type="SHOP_ANIMAL" text="$l10n_animals_dealer" worldPosition="1022.71 1550.01" teleportWorldPosition="1022.71 86.969 1550.01" />
+		<placeableHotspot type="SHOP_ANIMAL" text="$l10n_animals_dealer" worldPosition="1640.82 -1496.7" teleportWorldPosition="1640.82 5.467 -1496.7" />
+    </hotspots>
+
+        <motionPathEffects filename="$data/effects/motionPathEffects.xml">
+        <motionPathEffect filename="$data/maps/mapAlpine/effects/mower/mowerEffects.xml" />
+        <motionPathEffect filename="$data/maps/mapAlpine/effects/pickup/pickupEffects.xml" />
+        <motionPathEffect filename="$data/maps/mapAlpine/effects/tedder/tedderEffects.xml" />
+        <motionPathEffect filename="$data/maps/mapAlpine/effects/windrower/windrowerEffects.xml" />
+    </motionPathEffects>
+    <bales filename="$data/maps/maps_bales.xml"/>
+
+    <additionalFiles>
+        <additionalFile filename="$data/shared/materialHolders/tensionBeltMaterialHolder.i3d" />
+        <additionalFile filename="$data/shared/materialHolders/tireTrackMaterialHolder.i3d" />
+        <additionalFile filename="$data/shared/mapTargetMarker.i3d" />
+        <additionalFile filename="$data/fillPlanes/fillPlane_materialHolder.i3d" />
+        <additionalFile filename="$data/effects/effects.xml" />
+    </additionalFiles>
+
+    <!-- add all foliage layers that are not fruits. You need to define these foliage layers to be able to remove them with a cultivator or plow -->
+    <decoFoliages>
+       <decoFoliage layerName="decoFoliage" startChannel="0" numChannels="4" mowable="true"/>
+       <decoFoliage layerName="decoForest" startChannel="0" numChannels="4" mowable="true"/>
+       <decoFoliage layerName="decoBush" startChannel="0" numChannels="4" />
+       <decoFoliage layerName="groundFoliage" startChannel="0" numChannels="4" />
+
+       <mapping name="grassShort" layerName="decoFoliage" state="9" />
+    </decoFoliages>
+
+    <paintableFoliages>
+        <paintableFoliage layerName="grass" startChannel="0" numStateChannels="4" />
+        <paintableFoliage layerName="meadow" startChannel="0" numStateChannels="4" />
+        <paintableFoliage layerName="decoBush" startChannel="0" numStateChannels="4" />
+        <paintableFoliage layerName="decoFoliage" startChannel="0" numStateChannels="4" />
+    </paintableFoliages>
+
+    <!-- paintable ground types - need to be defined in map.i3d node TerrainTransformGroup|CombinedLayer -->
+    <groundTypeMappings>
+        <groundTypeMapping  type="dirt04"                  title="Dreck" layer="dirt04" />
+		<groundTypeMapping  type="dirt_dark"               title="Dreck_Dunkel" layer="DIRT_DARK" />
+        <groundTypeMapping  type="asphalt"                 title="AsphaltAlpine" layer="ASPHALTALPINE" />
+		<groundTypeMapping  type="asphalt"                 title="Asphalt" layer="ASPHALT" />
+		<groundTypeMapping  type="asphalt_rough"           title="Asphalt" layer="ASPHALT_ROUGH" />
+        <groundTypeMapping  type="gravel"                  title="Kies" layer="GRAVEL" />
+		<groundTypeMapping  type="gravelAlpine04_DLC"      title="Aplen_Kies" layer="gravelAlpine04_DLC" />
+        <groundTypeMapping  type="grass"                   title="Gras" layer="GRASS" />
+		<groundTypeMapping  type="grass_dry"               title="Gras_Dreckig" layer="GRASS_DIRT" />
+        <groundTypeMapping  type="concrete"                title="Beton" layer="CONCRETE" />
+		<groundTypeMapping  type="concrete_briks"          title="Betonplatte" layer="CONCRETE_BRICKS" />
+		<groundTypeMapping  type="concrete_tiles"          title="Gehwegplatte" layer="CONCRETE_TILES" />
+		<groundTypeMapping  type="concreteTilesAlpine04_DLC"  title="BetonPlattenALpine" layer="concreteTilesAlpine04_DLC" />
+		<groundTypeMapping  type="COBBLESTONE"             title="Kopfsteinpflaster" layer="COBBLESTONE" />
+        <groundTypeMapping  type="rock"                    title="Gebirgsstein" layer="MOUNTAINROCK" />
+		<groundTypeMapping  type="animalMud01"             title="Tiermatsch" layer="animalMud01" />
+        <groundTypeMapping  type="mud_river"               title="Flussmatsch" layer="MUD_RIVER" />
+		<groundTypeMapping  type="waterPuddle"           title="Pfuetze" layer="waterPuddle" />
+		<groundTypeMapping  type="plate04"                 title="Platte" layer="plate04" />
+		<groundTypeMapping  type="beachSandWet01"          title="Strandsand" layer="beachSandWet01" />
+    </groundTypeMappings>
+</map>
